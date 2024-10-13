@@ -2,6 +2,9 @@
 
 This repository is a collection of the Exif Tools I wrote to manage my photo libraries a bit better.
 
+- Add Google Maps GPS data to existing photos
+- Add Exif Date Taken tags to WhatApp images
+
 ## Before running any of this, create backups of your photos
 
 I tested these tools on my personal files and all went well, but always be careful when it comes to your precious memories.

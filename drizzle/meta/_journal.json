@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1727984919077,
+      "tag": "0000_complete_james_howlett",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1728213918284,
+      "tag": "0001_good_stone_men",
+      "breakpoints": true
+    }
+  ]
+}

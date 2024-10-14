@@ -24,7 +24,7 @@ After that you are ready to get started.
 
 ### Google Maps -> Exif GPS Data
 
-If you took Photos in the past but did not enable Location Data in your Camera app but want it, this might help you.
+If you took Photos in the past but did not enable Location Data in your Camera app but want it, this might help you.\
 It analyzes your Google Maps Timeline and if it finds your location for Photos that do not have Exif GPS data yet, it will add it.
 
 The setup for this is a bit more involved due to the sheer amount of data you could get from the Google Maps Takeout.
@@ -40,7 +40,7 @@ After you have received your export, download and extract it.
 The data we are interested in is the semantic location history and the raw records.
 
 First you probably have to split up your Records.json file.
-Due to limitations in nodejs, each file should not be bigger than 200MBs.
+Due to limitations in nodejs, each file should not be bigger than 200MBs.\
 I'd suggest to use a good text editor and just copying/pasting the values in the array into different files.
 The outcome files should have the array on a top level. eg. like this
 
@@ -74,8 +74,8 @@ When this script is done, the SQLite database is seeded properly with all your l
 
 The steps before you now never need to do again, hurray!
 
-To now process your photos and add the GPS data, open up the index.js file.
-At the top of the file, add the paths to your photos to the photoLibs array.
+To now process your photos and add the GPS data, open up the index.js file.\
+At the top of the file, add the paths to your photos to the photoLibs array.\
 The script will check every image in that folder and add GPS data to it if:
 
 - it's a valid image file
@@ -88,21 +88,21 @@ Now run the script:
 node index.js
 ```
 
-Depending on the amount of images, this might take quite a bit of time.
+Depending on the amount of images, this might take quite a bit of time.\
 The script will output current status into your terminal.
 
-After it's done, it will also output a summary of the actions it took.
+After it's done, it will also output a summary of the actions it took.\
 Please check that to make sure nothing went horribly wrong.
 
 Your photos now have GPS Exif tags in them.
 
 ### WhatsApp Images Date Taken
 
-By default WhatsApp strips any Exif Tags from Images that you receive/send.
+By default WhatsApp strips any Exif Tags from Images that you receive/send.\
 This might be a good thing for privacy, but if you also backup your WhatsApp images it can lead to the photo showing up at random days (depending on createdAt/modifiedAt timestamps).
 
-So this script will find all the WhatsApp Images (based on naming pattern) in the specified folders.
-Then for each it will parse the filename and set the Exif.Photo.DateTime tags to the day you have received/sent this image.
+So this script will find all the WhatsApp Images (based on naming pattern) in the specified folders.\
+Then for each it will parse the filename and set the Exif.Photo.DateTime tags to the day you have received/sent this image.\
 It also looks at the modified date of the file and if it matches the date it will take over the time too.
 If the modifie date does not match up with the date parsed from the filename, it will default to 12:00.
 
@@ -114,12 +114,10 @@ Please Note: The original modified date of the file will not be changed, it will
 
 Examples:
 
-- IMG-20170704-WA0000.jpg
-  modified date 01.01.2019 17:45
+- IMG-20170704-WA0000.jpg (modified date 01.01.2019 17:45)\
   => Exif Date: 04.07.2017 12:00
 
-- IMG-20170704-WA0000.jpg
-  modified date 04.07.2017 17:45
+- IMG-20170704-WA0000.jpg (modified date 04.07.2017 17:45)\
   => Exif Date: 04.07.2017 17:45
 
 To run the WhatsApp Image tool simply write:

@@ -3,6 +3,10 @@ const fs = require('fs').promises;
 
 const DEFAULT_TIMEOFFSET = '+02:00';
 
+// By default just looking at the last three months
+// To avoid updating older photos again and again
+const START_OFFSET = Date.now() - 1000 * 60 * 60 * 24 * 30 * 3;
+
 async function handleFile(filepath) {
   const fileName = filepath.split('/').slice(-1)[0].replace('IMG-', '');
   const year = fileName.substring(0, 4);
@@ -12,6 +16,9 @@ async function handleFile(filepath) {
   const fileNameTime = new Date();
   fileNameTime.setFullYear(year, month - 1, day);
   fileNameTime.setHours(12, 0);
+  if (fileNameTime.getTime() < START_OFFSET) {
+    return;
+  }
   const data = await fs.stat(filepath);
 
   // If the mtime (modified time) of the file is on the same day

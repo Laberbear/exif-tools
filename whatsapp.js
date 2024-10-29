@@ -47,6 +47,7 @@ async function handleFile(filepath) {
     // Write back original modified time to leave the file as is
     await fs.utimes(filepath, data.atime, data.mtime);
   } catch (error) {
+    console.log(error);
     // Write back original modified time to leave the file as is
     await fs.utimes(filepath, data.atime, data.mtime);
     throw error;
